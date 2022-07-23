@@ -1,4 +1,5 @@
 export * from './domain/entity/Entity'
+export * from './domain/entity/AggregateRoot'
 
 export * from './domain/value-object/Money'
 export * from './domain/value-object/Identifier'
