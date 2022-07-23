@@ -1,19 +1,19 @@
 import { UniqueEntityID } from '../value-object/UniqueEntityID';
 
-const isEntity = (v: any): v is Entity<any> => {
+const isEntity = (v: any): v is Entity<any, UniqueEntityID> => {
     return v instanceof Entity;
 };
 
-export abstract class Entity<T> {
-    protected readonly _id: UniqueEntityID;
+export abstract class Entity<T, U extends UniqueEntityID> {
+    protected readonly _id: U;
     public readonly props: T;
 
-    constructor(props: T, id?: UniqueEntityID) {
-        this._id = id ? id : new UniqueEntityID();
+    constructor(id: U, props: T) {
+        this._id = id;
         this.props = props;
     }
 
-    public equals(object?: Entity<T>): boolean {
+    public equals(object?: Entity<T, U>): boolean {
 
         if (object == null || object == undefined) {
             return false;

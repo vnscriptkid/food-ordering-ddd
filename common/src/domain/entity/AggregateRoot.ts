@@ -4,10 +4,10 @@ import { Entity } from "./Entity";
 // import { DomainEvents } from "./events/DomainEvents";
 // import { UniqueEntityID } from "./UniqueEntityID";
 
-export abstract class AggregateRoot<T> extends Entity<T> {
+export abstract class AggregateRoot<T, U extends UniqueEntityID> extends Entity<T, U> {
     //   private _domainEvents: IDomainEvent[] = [];
 
-    get id(): UniqueEntityID {
+    get id(): U {
         return this._id;
     }
 

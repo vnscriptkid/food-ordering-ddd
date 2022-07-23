@@ -1,0 +1,11 @@
+## domain layer
+- concepts: aggregate `root`, `value objects`, `entities` => holds business rules, stable, are depended on by upper layers
+- why `value objects`: avoid having 
+- validations are business rules => should be integrated into `value objects`
+- CQRS:
+    - command: returns nothing
+    - query: returns something
+- useCases ~ application service
+- `entities` methods:
+    - validation methods to enforce business rules
+    - state changing methods
